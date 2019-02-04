@@ -1,0 +1,49 @@
+"""
+Created on Mon Feb  4 09:39:43 2019
+
+@author: yelesoyombo
+"""
+#Spam classifier , testing classification rates on different ML algorithms including Random Forest, Naive bayes, AdaBoost and linear regression
+from sklearn.naive_bayes import MultinomialNB
+import pandas as pd
+import numpy as np 
+
+data = pd.read_csv('spambase.data').values
+np.random.shuffle(data)
+
+X = data[:, :48]
+Y = data[:, -1]
+
+Xtrain = X[:-100,]
+Ytrain = Y[:-100,]
+Xtest = X[-100:,]
+Ytest = Y[-100:,]
+
+model = MultinomialNB()
+model.fit(Xtrain, Ytrain)
+print("Classification rate for NB:", model.score(Xtest, Ytest))
+
+from sklearn.ensemble import AdaBoostClassifier
+
+model = AdaBoostClassifier()
+model.fit(Xtrain, Ytrain)
+print("Classification rate for AdaBoost:", model.score(Xtest, Ytest))
+
+from sklearn.ensemble import RandomForestRegressor
+
+model2 = RandomForestRegressor()
+model2.fit(Xtrain, Ytrain)
+print("Classification rate for RF:", model.score(Xtest, Ytest))
+
+from sklearn.ensemble import RandomForestClassifier
+
+model2 = RandomForestClassifier()
+model2.fit(Xtrain, Ytrain)
+print("Classification rate for RF:", model.score(Xtest, Ytest))
+# doesn't seem to be a difference between the regressor and classifier under RF
+
+
+from sklearn.linear_model import LinearRegression
+model2 = LinearRegression()
+model2.fit(Xtrain, Ytrain)
+print("Classification rate for LR:", model.score(Xtest, Ytest))
