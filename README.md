@@ -1,4 +1,4 @@
-# NLP-Spam-classifier-
+# Machine learning models for classificatino and regression e.g. -Spam-classifier-
 Spam classifier , testing classification rates on different ML algorithms including Random Forest, Naive bayes, AdaBoost and linear regression
 
 
