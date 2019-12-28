@@ -3,4 +3,4 @@ ML models including Spam classifier , testing classification rates on different 
 
 major topics: classification, regression, and sentiment analysis
 
-#LR, RF have the same classificcation rate. Interesting to see if it is the same on larger datasets or more varied datasets
+#LR, RF have the same classification rate. Interesting to see if it is the same on larger datasets or more varied datasets
